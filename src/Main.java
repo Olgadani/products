@@ -14,6 +14,14 @@ public class Main {
         productList.addProduct(fish);
         System.out.println(productList);
         numbersRemove();
+        MultiplicationTable multiplicationTable = new MultiplicationTable();
+        System.out.println(multiplicationTable);
+        Tasks task1 = new Tasks(3, 5);
+        Tasks task2 = new Tasks(4, 5);
+        Set<Tasks> set = new HashSet<>();
+        set.add(task1);
+        set.add(task2);
+        System.out.println(set);
     }
 
     private static void numbersRemove() {

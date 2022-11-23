@@ -16,14 +16,6 @@ public class ProductList {
         }
     }
 
-    public void checkProduct(String name) {
-        for (Products product : this.products) {
-            if (product.getName().equals(name)) {
-                product.setChecked();
-                break;
-            }
-        }
-    }
 
     public void removeProduct(String name) {
         Iterator<Products> productsIterator = this.products.iterator();

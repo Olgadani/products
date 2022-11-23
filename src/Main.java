@@ -1,13 +1,10 @@
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Products banan = new Products("Бананы", 58.2, 1.5);
-        Products apple = new Products("Яблоки", 65.8, 2.3);
-        Products fish = new Products("Рыба", 128.7, 1.4);
+        Products banan = new Products("Бананы", 58.2);
+        Products apple = new Products("Яблоки", 65.8);
+        Products fish = new Products("Рыба", 128.7);
         ProductList productList = new ProductList();
         productList.addProduct(banan);
         productList.addProduct(apple);
@@ -22,6 +19,14 @@ public class Main {
         set.add(task1);
         set.add(task2);
         System.out.println(set);
+        System.out.println("Телефонная книга");
+        PhoneGuide phoneGuide = new PhoneGuide();
+        while (phoneGuide.getEntries().size() < 20) {
+            phoneGuide.addPhone(getRandomName(), getPhoneNumber());
+        }
+        for (Map.Entry<FullName, String> entry : phoneGuide.getEntries()) {
+            System.out.printf("%s - %s%n", entry.getKey(), entry.getValue());
+        }
     }
 
     private static void numbersRemove() {
@@ -40,6 +45,22 @@ public class Main {
         }
         System.out.println(numbers);
     }
+
+    private final static Random RANDOM = new Random();
+    public static FullName getRandomName() {
+        String name = "Test" + RANDOM.nextInt(1000000);
+        String surname = "TestLast" + RANDOM.nextInt(1000000);
+        return new FullName(name, surname);
+    }
+
+    public static String getPhoneNumber() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < 11; i++) {
+            stringBuilder.append(RANDOM.nextInt(10));
+        }
+        return stringBuilder.toString();
+    }
+
 
 
 }

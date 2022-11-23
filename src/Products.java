@@ -3,26 +3,22 @@ import java.util.Objects;
 public class Products {
     private String name;
     private double price;
-    private double quantity;
-    private boolean checked;
 
-    public Products(String name, double price, double quantity) {
-        if (name == null || name.isEmpty() || price < 0 || quantity < 0) {
+
+
+    public Products(String name, double price) {
+        if (name == null || name.isEmpty() || price < 0) {
             throw new IllegalArgumentException("Заполните карточку товара полностью");
         }
         this.name = name;
         this.price = price;
-        this.quantity = quantity;
-        this.checked = false;
+
+
     }
 
-    public boolean isChecked() {
-        return checked;
-    }
 
-    public void setChecked() {
-        this.checked = true;
-    }
+
+
 
     public String getName() {
         return name;
@@ -32,9 +28,6 @@ public class Products {
         return price;
     }
 
-    public double getQuantity() {
-        return quantity;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -51,8 +44,8 @@ public class Products {
 
     @Override
     public String toString() {
-        String checkString = this.isChecked() ? "Да" : "Нет";
-        return String.format("%s, Цена: %s, Количество: %s, Куплен: %s",
-                this.name, this.price, this.quantity, checkString);
+
+        return String.format("%s, Цена: %s",
+                this.name, this.price);
     }
 }
